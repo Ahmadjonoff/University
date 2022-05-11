@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maxsuslik</title>
+</head>
+<body>
+    <h1>Maxsusliklar ro`yxati:</h1>
+
+    {% for spes in Specials %}
+        <div style="display:flex; text-align:center; align-items:center; ">
+            <h2> {{ spes }} </h2>
+            <a href = "/Yonalish/{{spes.id}}/">
+                <button style = 'height:30px; margin-left:10px'>
+                    <p style="margin:0">O`chirish</p>
+                </button>
+            </a>
+        </div>
+    {% endfor %}
+
+    <form action="/Yonalish/" method="post"> {% csrf_token %}
+        <input type = 'text' name = "nom" placeholder = "Nomi">
+        <input type = 'number' name = "code" placeholder = "code">
+        Boshlangan vaqti:
+        <input type = 'date' name = "start">
+        Aktivmi:
+        <input type = 'checkbox' name = "active">
+        <button type = "submit">Qo`shish</button>
+    </form>
+
+    <br>
+    <a href="/"><h1>Bosh menyuga qaytish</h1></a>
+</body>
+</html>

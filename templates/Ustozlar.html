@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar</title>
+</head>
+<body>
+    <h1>Ustozlar ro`yxati:</h1>
+    {% for ustoz in Ustozlar %}
+        <h2>{{ustoz}}</h2>
+        <a href = "/ustozlar/{{ ustoz.id }}"> <button>O`chirish</button></a>
+    {% endfor %}
+    <br>
+    <br>
+    <form action="/ustozlar/" method="post"> {% csrf_token %}
+        <input type = 'text' name = "nom" placeholder = "Ismi">
+        <input type = 'text' name = "fam" placeholder = "Familiyasi">
+        <input type = 'text' name = 'daraja' placeholder = "Darajasi">
+        <button type = "submit">Qo`shish</button>
+    </form>
+
+    <br>
+    <a href="/"><h1>Bosh menyuga qaytish</h1></a>
+</body>
+</html>
